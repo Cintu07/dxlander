@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 
 export function ThemeToggle() {
-  const { resolvedTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,14 +14,10 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <Button variant="ghost" size="icon" aria-hidden className="opacity-0">
-        <Sun className="h-5 w-5" />
-      </Button>
-    );
+    return null;
   }
 
-  const isDark = (theme === 'system' ? resolvedTheme === 'dark' : theme === 'dark') ?? false;
+  const isDark = theme === 'system' ? resolvedTheme === 'dark' : theme === 'dark';
 
   const handleToggle = () => {
     setTheme(isDark ? 'light' : 'dark');
