@@ -60,7 +60,7 @@
   --radius: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   @theme {
     --color-background: #020617;
     --color-foreground: #f8fafc;
