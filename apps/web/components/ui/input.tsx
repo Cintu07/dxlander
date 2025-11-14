@@ -8,7 +8,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
         type={type}
         maxLength={props.maxLength ?? 200}
         className={cn(
-          'flex h-12 w-full rounded-xl border-2 border-ocean-200/60 bg-white px-4 py-3 text-base text-gray-900 shadow-lg transition-all duration-300 ease-out file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-gray-400 hover:border-ocean-300/80 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ocean-500/20 focus-visible:border-ocean-600 focus-visible:bg-white disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+          'flex h-12 w-full rounded-xl border-2 border-border/70 bg-background px-4 py-3 text-base text-foreground shadow-lg transition-all duration-300 ease-out file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground hover:border-border hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ocean-500/20 focus-visible:border-ocean-500 focus-visible:bg-background disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-slate-950/70 dark:border-slate-800/70 dark:hover:border-ocean-700 dark:focus-visible:border-ocean-500 dark:focus-visible:bg-slate-950',
           className
         )}
         ref={ref}
@@ -55,19 +55,19 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
             className={cn(
               // Base styles
               'w-full rounded-xl border-2 transition-all duration-300 ease-out relative z-0',
-              'bg-white',
+              'bg-background dark:bg-slate-950/70',
               'shadow-lg hover:shadow-xl placeholder-transparent',
-              'text-gray-800 font-medium',
+              'text-foreground font-medium',
 
               // Border and focus styles
               focused
-                ? 'border-ocean-500 ring-4 ring-ocean-500/20 bg-white shadow-2xl shadow-ocean-500/10'
+                ? 'border-ocean-500 ring-4 ring-ocean-500/20 bg-background shadow-2xl shadow-ocean-500/10 dark:bg-slate-950/80'
                 : error
-                  ? 'border-red-400 hover:border-red-500 shadow-red-100'
-                  : 'border-ocean-200/60 hover:border-ocean-300/80',
+                  ? 'border-red-400 hover:border-red-500 shadow-red-100 dark:border-red-600 dark:hover:border-red-500'
+                  : 'border-border/70 hover:border-border dark:border-slate-800/70 dark:hover:border-ocean-700',
 
               // Size and spacing
-              'h-14 px-4 py-4 text-base',
+              'h-14 px-4 py-4 text-base text-foreground',
               leftIcon && 'pl-12',
               rightIcon && 'pr-12',
 
@@ -93,7 +93,9 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
             <div
               className={cn(
                 'absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-300 z-10',
-                isActive ? 'text-ocean-600' : 'text-gray-400'
+                isActive
+                  ? 'text-ocean-600 dark:text-ocean-300'
+                  : 'text-muted-foreground dark:text-slate-500'
               )}
             >
               {rightIcon}
@@ -109,12 +111,15 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
             isActive
               ? [
                   '-top-3 left-3 text-xs px-3 py-1.5',
-                  'bg-linear-to-r from-white via-ocean-50 to-white rounded-lg shadow-md',
+                  'bg-linear-to-r from-background via-ocean-50 to-background rounded-lg shadow-md dark:from-slate-950 dark:via-ocean-900/40 dark:to-slate-950',
                   error
-                    ? 'text-red-600 border border-red-200'
-                    : 'text-ocean-600 border border-ocean-200/60',
+                    ? 'text-red-600 border border-red-200 dark:border-red-600/60 dark:text-red-400'
+                    : 'text-ocean-600 border border-ocean-200/60 dark:text-ocean-200 dark:border-ocean-800/40',
                 ]
-              : ['top-1/2 -translate-y-1/2 text-base left-4', 'text-gray-500'],
+              : [
+                  'top-1/2 -translate-y-1/2 text-base left-4',
+                  'text-muted-foreground dark:text-slate-500',
+                ],
             leftIcon && isActive && 'left-3',
             leftIcon && !isActive && 'left-12'
           )}
@@ -124,7 +129,7 @@ const FloatingInput = React.forwardRef<HTMLInputElement, FloatingInputProps>(
 
         {/* Error message */}
         {error && (
-          <div className="mt-2 flex items-center gap-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+          <div className="mt-2 flex items-center gap-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
             <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"

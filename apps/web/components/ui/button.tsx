@@ -5,21 +5,21 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden cursor-pointer disabled:cursor-not-allowed',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden cursor-pointer disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
         default:
-          'bg-gradient-to-r from-ocean-700 via-ocean-600 to-ocean-500 text-white shadow-lg hover:shadow-xl hover:shadow-ocean-500/30 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity',
+          'bg-gradient-to-r from-ocean-700 via-ocean-600 to-ocean-500 text-white shadow-lg hover:shadow-xl hover:shadow-ocean-500/30 hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity dark:from-ocean-500 dark:via-ocean-500 dark:to-ocean-400',
         destructive:
-          'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg hover:shadow-xl hover:shadow-red-500/30 hover:scale-[1.02] active:scale-[0.98]',
+          'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg hover:shadow-xl hover:shadow-red-500/30 hover:scale-[1.02] active:scale-[0.98] dark:from-red-600 dark:to-red-500',
         outline:
-          'border-2 border-ocean-200 bg-white/50 backdrop-blur-sm text-ocean-700 shadow-md hover:shadow-lg hover:bg-ocean-50/80 hover:border-ocean-300 hover:scale-[1.02] active:scale-[0.98]',
+          'border-2 border-border/60 bg-background/80 backdrop-blur-sm text-foreground shadow-md hover:shadow-lg hover:bg-background/90 hover:border-border hover:scale-[1.02] active:scale-[0.98] dark:border-slate-800/70 dark:bg-slate-950/60 dark:text-slate-100 dark:hover:bg-slate-900/70 dark:hover:border-slate-700',
         secondary:
-          'bg-gradient-to-r from-ocean-50 to-ocean-100 text-ocean-800 shadow-md hover:shadow-lg hover:from-white hover:to-ocean-50 hover:scale-[1.02] active:scale-[0.98] border border-ocean-200/50',
+          'border border-border/60 bg-gradient-to-r from-ocean-50 to-ocean-100 text-ocean-800 shadow-md hover:shadow-lg hover:from-white hover:to-ocean-50 hover:scale-[1.02] active:scale-[0.98] dark:border-slate-800/70 dark:from-slate-900/50 dark:via-ocean-900/40 dark:to-ocean-800/40 dark:text-ocean-100',
         ghost:
-          'text-ocean-700 hover:bg-gradient-to-r hover:from-ocean-50 hover:to-ocean-100 hover:text-ocean-800 hover:scale-[1.02] active:scale-[0.98]',
-        link: 'text-ocean-600 underline-offset-4 hover:underline hover:text-ocean-700',
+          'text-ocean-700 hover:bg-gradient-to-r hover:from-ocean-50 hover:to-ocean-100 hover:text-ocean-800 hover:scale-[1.02] active:scale-[0.98] dark:text-ocean-100 dark:hover:from-slate-900/60 dark:hover:to-ocean-900/40 dark:hover:text-ocean-50',
+        link: 'text-ocean-600 underline-offset-4 hover:underline hover:text-ocean-700 dark:text-ocean-200 dark:hover:text-ocean-100',
       },
       size: {
         default: 'h-11 px-6 py-3',

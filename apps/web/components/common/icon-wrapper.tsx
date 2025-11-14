@@ -3,15 +3,18 @@ import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const iconWrapperVariants = cva(
-  'flex items-center justify-center rounded-lg transition-all duration-300',
+  'flex items-center justify-center rounded-lg transition-all duration-300 text-foreground',
   {
     variants: {
       variant: {
-        default: 'bg-ocean-100 text-ocean-600',
-        primary: 'bg-gradient-to-r from-ocean-600 to-ocean-700 text-white shadow-lg',
-        secondary: 'bg-ocean-50 text-ocean-700 border border-ocean-200',
-        ghost: 'bg-transparent text-ocean-600',
-        outline: 'bg-white border-2 border-ocean-200 text-ocean-600 hover:bg-ocean-50',
+        default: 'bg-ocean-100 text-ocean-600 dark:bg-ocean-900/40 dark:text-ocean-100',
+        primary:
+          'bg-gradient-to-r from-ocean-600 to-ocean-700 text-white shadow-lg dark:from-ocean-500 dark:to-ocean-400',
+        secondary:
+          'bg-ocean-50 text-ocean-700 border border-ocean-200 dark:bg-ocean-900/30 dark:text-ocean-100 dark:border-ocean-800/50',
+        ghost: 'bg-transparent text-ocean-600 dark:text-ocean-100',
+        outline:
+          'bg-background border-2 border-ocean-200 text-ocean-600 hover:bg-ocean-50 dark:bg-slate-950/70 dark:border-ocean-800/50 dark:text-ocean-100 dark:hover:bg-slate-900/60',
       },
       size: {
         xs: 'w-6 h-6',

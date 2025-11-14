@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ThemeToggle } from '@/components/common';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
@@ -32,8 +33,10 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
         ref={ref}
         className={cn(
           'relative',
-          showBorder && 'border-b border-ocean-200/60',
-          transparent ? 'bg-transparent' : 'bg-white/95 backdrop-blur-sm',
+          showBorder && 'border-b border-border/60 dark:border-slate-800/60',
+          transparent
+            ? 'bg-transparent'
+            : 'bg-background/95 backdrop-blur-md shadow-sm ring-1 ring-inset ring-border/40 dark:bg-slate-950/80 dark:ring-slate-800/60',
           className
         )}
         {...props}
@@ -55,7 +58,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
                   {badge && (
                     <Badge
                       variant="secondary"
-                      className="text-xs bg-ocean-100 text-ocean-700 border-ocean-200 flex-shrink-0"
+                      className="text-xs bg-ocean-100 text-ocean-700 border-ocean-200 flex-shrink-0 dark:bg-ocean-800/60 dark:text-ocean-100 dark:border-ocean-700/60"
                     >
                       {badge}
                     </Badge>
@@ -64,7 +67,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
 
                 {/* Subtitle row - only on larger screens */}
                 {subtitle && (
-                  <p className="text-xs sm:text-sm text-ocean-600 mt-0.5 line-clamp-1 hidden sm:block">
+                  <p className="text-xs sm:text-sm text-ocean-600 dark:text-ocean-200 mt-0.5 line-clamp-1 hidden sm:block">
                     {subtitle}
                   </p>
                 )}
@@ -72,7 +75,10 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
             </div>
 
             {/* Right side: Actions */}
-            {actions && <div className="flex items-center gap-2 flex-shrink-0">{actions}</div>}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {actions}
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>

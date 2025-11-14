@@ -3,21 +3,22 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const cardVariants = cva(
-  'rounded-2xl border-2 bg-card text-gray-900 shadow-xl transition-all duration-300 ease-out',
+  'rounded-2xl border-2 bg-card text-foreground shadow-xl transition-all duration-300 ease-out border-border/60 dark:bg-slate-950/80 dark:text-slate-100 dark:border-slate-800/70',
   {
     variants: {
       variant: {
         default:
-          'border-ocean-200/50 bg-white shadow-lg shadow-ocean-500/5 hover:shadow-xl hover:shadow-ocean-500/10 hover:border-ocean-300/60',
+          'shadow-lg shadow-ocean-500/5 hover:shadow-xl hover:shadow-ocean-500/10 hover:border-border',
         interactive:
-          'border-ocean-200/60 bg-white shadow-ocean-500/10 hover:shadow-2xl hover:shadow-ocean-500/25 hover:border-ocean-400/70 hover:scale-[1.02] cursor-pointer',
+          'shadow-ocean-500/10 hover:shadow-2xl hover:shadow-ocean-500/25 hover:border-ocean-400/70 hover:scale-[1.02] cursor-pointer',
         elevated:
-          'border-ocean-300/50 bg-ocean-50/30 shadow-2xl shadow-ocean-500/15 hover:shadow-3xl hover:shadow-ocean-500/25 hover:border-ocean-400/60',
+          'border-ocean-300/50 bg-ocean-50/30 shadow-2xl shadow-ocean-500/15 hover:shadow-3xl hover:shadow-ocean-500/25 hover:border-ocean-400/60 dark:bg-slate-900/60 dark:border-ocean-900/40',
         glass:
-          'border-white/25 bg-white/15 backdrop-blur-xl shadow-2xl shadow-ocean-500/10 hover:bg-white/20',
+          'border-white/25 bg-white/15 backdrop-blur-xl shadow-2xl shadow-ocean-500/10 hover:bg-white/20 dark:border-slate-800/60 dark:bg-slate-950/40 dark:hover:bg-slate-900/50',
         gradient:
-          'border-ocean-300/50 bg-ocean-50/50 shadow-2xl shadow-ocean-500/15 hover:shadow-3xl hover:shadow-ocean-500/25',
-        disabled: 'border-gray-200 bg-gray-50/80 shadow-sm cursor-not-allowed opacity-60',
+          'border-ocean-300/50 bg-ocean-50/50 shadow-2xl shadow-ocean-500/15 hover:shadow-3xl hover:shadow-ocean-500/25 dark:bg-ocean-900/40 dark:border-ocean-800/50',
+        disabled:
+          'border-gray-200 bg-gray-50/80 shadow-sm cursor-not-allowed opacity-60 dark:border-slate-800 dark:bg-slate-900/40',
       },
     },
     defaultVariants: {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const sectionVariants = cva('relative', {
+const sectionVariants = cva('relative text-foreground', {
   variants: {
     variant: {
       default: '',
@@ -19,9 +19,10 @@ const sectionVariants = cva('relative', {
     },
     background: {
       transparent: '',
-      subtle: 'bg-ocean-50/20',
-      card: 'bg-white/80 backdrop-blur-sm border border-ocean-200/30 rounded-2xl shadow-lg',
-      gradient: 'bg-gradient-to-r from-ocean-50/30 to-ocean-100/20',
+      subtle: 'bg-ocean-50/20 dark:bg-slate-900/60',
+      card: 'bg-card/90 backdrop-blur-sm border border-border/60 rounded-2xl shadow-lg dark:bg-slate-950/70 dark:border-slate-800/60',
+      gradient:
+        'bg-gradient-to-r from-ocean-50/30 to-ocean-100/20 dark:from-slate-900/70 dark:to-ocean-900/40',
     },
   },
   defaultVariants: {
