@@ -166,8 +166,7 @@
     border-color: hsl(var(--color-border));
   }
   body {
-    @apply text-foreground;
-    background: transparent !important;
+    @apply bg-background text-foreground;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
@@ -178,19 +177,19 @@
 /* Custom elegant utilities */
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-ocean-600 to-ocean-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-ocean-600 to-ocean-500 bg-clip-text text-transparent dark:from-ocean-400 dark:to-ocean-300;
   }
 
   .text-gradient-ocean {
-    @apply bg-gradient-to-r from-ocean-700 to-ocean-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-ocean-700 to-ocean-600 bg-clip-text text-transparent dark:from-ocean-500 dark:to-ocean-400;
   }
 
   .glass {
-    @apply backdrop-blur-xl bg-white/10 border-white/20;
+    @apply backdrop-blur-xl bg-white/10 border-white/20 dark:bg-slate-800/10 dark:border-slate-700/20;
   }
 
   .glass-ocean {
-    @apply backdrop-blur-xl bg-ocean-50/20 border-ocean-200/30;
+    @apply backdrop-blur-xl bg-ocean-50/20 border-ocean-200/30 dark:bg-ocean-900/20 dark:border-ocean-800/30;
   }
 
   .shadow-elegant {
@@ -199,16 +198,34 @@
       0 2px 4px -1px rgba(37, 99, 235, 0.06);
   }
 
+  .dark .shadow-elegant {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
   .shadow-elegant-lg {
     box-shadow:
       0 10px 15px -3px rgba(59, 130, 246, 0.1),
       0 4px 6px -2px rgba(37, 99, 235, 0.05);
   }
 
+  .dark .shadow-elegant-lg {
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.4),
+      0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+
   .shadow-ocean {
     box-shadow:
       0 8px 25px -5px rgba(59, 130, 246, 0.3),
       0 8px 10px -6px rgba(37, 99, 235, 0.2);
+  }
+
+  .dark .shadow-ocean {
+    box-shadow:
+      0 8px 25px -5px rgba(59, 130, 246, 0.4),
+      0 8px 10px -6px rgba(37, 99, 235, 0.3);
   }
 }
 
